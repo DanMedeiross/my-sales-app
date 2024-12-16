@@ -4,6 +4,8 @@
     <mat-card-subtitle>Listing all categories</mat-card-subtitle>
   </mat-card-header>
 
+  <category-form></category-form>
+
   <mat-card-content>
     <table mat-table class="full-width-table" matSort aria-label="Elements">
       <!-- Id Column -->
@@ -16,6 +18,12 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
         <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let row">{{ row.description }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
