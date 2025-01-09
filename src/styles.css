@@ -5,7 +5,100 @@ body {
   height: 100%;
 }
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/public/fonts/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/public/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/public/fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/public/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+
+/* FlexBox CSS Classes */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.center {
+  align-items: center;
+  justify-content: center;
+}
+.width-full {
+  width: 100%;
+}
+.item-20 {
+  flex: 0 0 20%;
+}
+.item-30 {
+  flex: 0 0 30%;
+}
+.item-40 {
+  flex: 0 0 40%;
+}
+.item-50 {
+  flex: 0 0 50%;
+}
+.item-60 {
+  flex: 0 0 60%;
+}
+.item-70 {
+  flex: 0 0 70%;
+}
+.item-80 {
+  flex: 0 0 80%;
+}
+.item {
+  flex: 1 1 auto;
+}
+/* tablet or mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 5px;
+  }
 }

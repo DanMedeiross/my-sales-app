@@ -1,0 +1,14 @@
+{
+  "/fonts.googleapis.com/*": {
+    "target": "https://fonts.googleapis.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/fonts.gstatic.com/*": {
+    "target": "https://fonts.gstatic.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

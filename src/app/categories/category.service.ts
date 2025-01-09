@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { Category } from './category.dto';
 import { Observable } from 'rxjs';
 
@@ -12,5 +12,21 @@ export class CategoryService {
 
   public getAll(): Observable<Category[]> {
     return this.http.get<Category[]>(environment.api + 'categories');
+  }
+
+  public save(category: Category): Observable<Category> {
+    if (category.id) {
+      return this.http.put<Category>(environment.api + 'categories/' + category.id, category);
+    }
+    return this.http.post<Category>(environment.api + 'categories', category);
+  }
+
+  public show(categoryId: number): Observable<Category> {
+    const url = '${environment.api}categories/${categoryId}';
+    return this.http.get<Category>(url);
+  }
+
+  public delete(id: number) {
+    return this.http.delete(environment.api + 'categories/' + id);
   }
 }
