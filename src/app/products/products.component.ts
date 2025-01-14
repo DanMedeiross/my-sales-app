@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-suppliers',
+  selector: 'app-products',
   imports: [MatCardModule, RouterOutlet],
-  templateUrl: './suppliers.component.html',
+  templateUrl: './products.component.html',
   styles: ``
 })
-export class SuppliersComponent {
+export class ProductsComponent {
 }

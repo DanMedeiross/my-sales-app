@@ -30,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styles: ``
 })
 export class SuppliersEditComponent {
-  route = inject(ActivatedRoute)
+  route = inject(ActivatedRoute);
   router = inject(Router);
   supplierService = inject(SupplierService);
   supplier: Supplier
@@ -40,7 +40,6 @@ export class SuppliersEditComponent {
     const id: Number = +(this.route.snapshot.paramMap.get('id') || 0);
     this.supplierObservable = this.supplierService.getById(id);
     this.supplier = await lastValueFrom(this.supplierObservable);
-    console.log(this.supplier);
   }
 
   async onSave(supplier: Supplier) {
@@ -50,6 +49,6 @@ export class SuppliersEditComponent {
   }
 
   onBack() {
-    this.router.navigate(['/suppliers']);
+    this.router.navigate(['/suppliers/show/', this.supplier.id]);
   }
 }

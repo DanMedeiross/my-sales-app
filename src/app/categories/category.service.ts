@@ -21,11 +21,6 @@ export class CategoryService {
     return this.http.post<Category>(environment.api + 'categories', category);
   }
 
-  public show(categoryId: number): Observable<Category> {
-    const url = '${environment.api}categories/${categoryId}';
-    return this.http.get<Category>(url);
-  }
-
   public delete(id: number) {
     return this.http.delete(environment.api + 'categories/' + id);
   }

@@ -24,8 +24,8 @@ export class SuppliersFormComponent implements OnInit {
   @Input({required: true}) supplier: Supplier
   @Output() save = new EventEmitter<Supplier>();
   @Output() back = new EventEmitter();
-  supplierForm: FormGroup
-  private fb = inject(FormBuilder)
+  supplierForm: FormGroup;
+  private fb = inject(FormBuilder);
 
   ngOnInit(): void {
     this.supplierForm = this.fb.group({
@@ -51,10 +51,10 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.save.emit(this.supplierForm.value as Supplier)
+    this.save.emit(this.supplierForm.value as Supplier);
   }
   onBack(event:Event) {
-    event.preventDefault()
-    this.back.emit()
+    event.preventDefault();
+    this.back.emit();
   }
 }

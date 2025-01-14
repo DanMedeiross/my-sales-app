@@ -1,0 +1,30 @@
+@if (productsObservable|async) {
+  <div>
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="container">
+        <mat-form-field class="width-full">
+          <input matInput placeholder="Search" formControlName="searchTerm"/>
+        </mat-form-field>
+        <div class="pt-10">
+          <button mat-button type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container wrap">
+    <!-- @for (item of [].constructor(100); track $index) {
+      <div style="height: 100px; width: 100%;">{{ $index }}</div>
+    }-->
+    @for(product of products; track product.id){
+      @defer (on viewport){
+        <app-products-card [product]="product"></app-products-card>
+      } @placeholder {
+        <span>Placeholder</span>
+      } @loading {
+        <span>Loading</span>
+      }
+    }
+  </div>
+} @else {
+  <loading-bar></loading-bar>
+}

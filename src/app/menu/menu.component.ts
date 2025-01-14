@@ -19,15 +19,15 @@ interface MenuItem {
 export class MenuComponent {
   menuItems: Array<MenuItem> = [
     {
-      path: '/',
+      path: '',
       label: 'Home'
     },
     {
-      path: '/categories',
+      path: 'categories',
       label: 'Categories'
     },
     {
-      path: '/suppliers',
+      path: 'suppliers',
       label: 'Suppliers'
     }
   ]

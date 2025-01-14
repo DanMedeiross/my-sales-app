@@ -15,15 +15,15 @@ import { MatButtonModule } from '@angular/material/button';
   styles: ``
 })
 export class SuppliersShowComponent implements OnInit {
-  route = inject(ActivatedRoute)
-  supplierService = inject(SupplierService)
-  supplier: Supplier
-  supplierObservable: Observable<Supplier>
+  route = inject(ActivatedRoute);
+  supplierService = inject(SupplierService);
+  supplier: Supplier;
+  supplierObservable: Observable<Supplier>;
 
   async ngOnInit() {
     const id: Number = +(this.route.snapshot.paramMap.get('id') || 0);
     this.supplierObservable = this.supplierService.getById(id);
     this.supplier = await lastValueFrom(this.supplierObservable);
-    console.log(this.supplier)
+    console.log(this.supplier);
   }
 }

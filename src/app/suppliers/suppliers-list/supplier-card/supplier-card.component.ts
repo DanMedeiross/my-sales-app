@@ -7,7 +7,10 @@ import { RouterLink } from '@angular/router';
   selector: 'app-supplier-card',
   imports: [MatCardModule, RouterLink],
   templateUrl: './supplier-card.component.html',
-  styles: ``
+  styles: `mat-card-content:hover{
+    background-color: #def;
+    cursor: pointer;
+  }`
 })
 export class SupplierCardComponent {
   @Input({required: true}) supplier: Supplier;

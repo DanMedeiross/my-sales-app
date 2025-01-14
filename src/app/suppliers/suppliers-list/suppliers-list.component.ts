@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Supplier } from '../supplier.dto';
-import { lastValueFrom, Observable } from 'rxjs';
+import { catchError, EMPTY, lastValueFrom, Observable } from 'rxjs';
 import { SupplierService } from '../supplier.service';
 import { MatCardModule } from '@angular/material/card';
 import { LoadingBarComponent } from '../../loading-bar.component';
@@ -16,13 +16,16 @@ import { MatButtonModule } from '@angular/material/button';
   styles: ``
 })
 export class SuppliersListComponent implements OnInit {
-  suppliers!: Supplier[];
-  supplierObservable!: Observable<Supplier[]>;
-
-  constructor(private supplierService: SupplierService) {};
+  suppliers$: Observable<Supplier[]>;
+  error: string;
+  private supplierService = inject(SupplierService);
 
   async ngOnInit() {
-    this.supplierObservable = this.supplierService.getAll();
-    this.suppliers = await lastValueFrom(this.supplierObservable);
+    this.suppliers$ = this.supplierService.getAll().pipe(
+      catchError(error => {
+        this.error = error.message
+        return EMPTY
+      })
+    )
   }
 }

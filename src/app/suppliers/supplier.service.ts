@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Supplier } from './supplier.dto';
 import { environment } from '../../environments/environment.prod';
@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment.prod';
   providedIn: 'root'
 })
 export class SupplierService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   public getAll(): Observable<Supplier[]> {
     return this.http.get<Supplier[]>(environment.api + 'suppliers');
